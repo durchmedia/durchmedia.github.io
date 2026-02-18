@@ -1,0 +1,650 @@
+/* --- TEMEL AYARLAR --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+:root {
+    --primary: #590616;
+    --dark: #2a2a2a;
+    --white: #ffffff;
+    --bg-light: #f7f2eb;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- GEOMETRİK ŞEKİLLER (SHAPES) --- */
+.shape {
+    position: absolute;
+    background: var(--primary);
+    opacity: 0.04;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.shape-1 {
+    width: 500px;
+    height: 500px;
+    border-radius: 40% 60% 70% 30%;
+    top: -100px;
+    right: -100px;
+}
+
+.shape-2 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    bottom: 50px;
+    left: -100px;
+}
+
+.shape-3 {
+    width: 250px;
+    height: 250px;
+    top: 20px;
+    left: -50px;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+.shape-4 {
+    width: 150px;
+    height: 150px;
+    bottom: -20px;
+    right: 50px;
+    border-radius: 50%;
+}
+
+/* --- HEADER & NAV --- */
+header {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 1000;
+    transition: 0.4s ease;
+    background: transparent;
+    display: flex;
+    align-items: center;
+}
+
+header.background-header {
+    background: rgba(255, 255, 255, 0.98);
+    height: 70px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    width: 180px;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 100%;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.btn-header {
+    background: var(--primary);
+    color: #fff !important;
+    padding: 10px 25px;
+    border-radius: 50px;
+}
+
+/* --- HERO --- */
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+}
+
+.hero-content {
+    width: 70%;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.hero-content h1 span {
+    color: var(--primary);
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.btn-main {
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 35px;
+    border-radius: 8px;
+    display: inline-block;
+    transition: 0.3s;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 550px;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.1));
+}
+
+/* --- SERVICES (BEYAZ) --- */
+.services {
+    padding: 120px 0;
+    background: var(--white);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.line {
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin: 15px auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    width: 100%;
+}
+
+.service-card {
+    padding: 36px 23px;
+    background: var(--bg-light);
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 220px;
+    cursor: pointer;
+    border: none !important;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background: var(--white);
+    box-shadow: 0 20px 40px rgba(89, 6, 22, 0.08);
+}
+
+.service-card i {
+    font-size: 38px;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 21px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* --- HİZMETLER (SERVICES) ŞEKİLLERİ --- */
+.services {
+    padding: 120px 0;
+    background: var(--white);
+    position: relative;
+    /* Şekillerin buraya göre hizalanması için */
+    overflow: hidden;
+}
+
+/* Sol üstteki şekil */
+.shape-7 {
+    width: 350px;
+    height: 350px;
+    background: var(--primary);
+    opacity: 0.03;
+    border-radius: 50% 50% 50% 0%;
+    /* Köşeli/yuvarlak karma form */
+    top: 50px;
+    left: -100px;
+    z-index: 1;
+}
+
+/* Sağ alttaki şekil */
+.shape-8 {
+    width: 450px;
+    height: 450px;
+    background: var(--primary);
+    opacity: 0.03;
+    border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
+    bottom: -50px;
+    right: -150px;
+    z-index: 1;
+}
+
+/* Kartların şekillerin üstünde kalması için */
+.services .container {
+    position: relative;
+    z-index: 2;
+}
+
+.service-card {
+    background: #f7f2eb;
+    /* Beyaz bölüm üzerinde belirginleşmesi için bej tonu */
+    /* ...diğer ayarlar aynı... */
+}
+
+/* --- KURUMSAL BÖLÜMÜ GENEL --- */
+.about-mission {
+    /* Yüksekliği artırmak için dikey padding'i 150px'e çıkardık */
+    padding: 150px 0;
+    background-color: var(--bg-light);
+}
+
+/* Başlık ile kartlar arasındaki metnin mesafesi */
+.about-intro {
+    max-width: 850px;
+    margin: 40px auto 60px auto;
+    /* Üstten 40px, alttan (kartlara doğru) 60px boşluk */
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: center;
+}
+
+/* Kartların içindeki paragraflar arası mesafe */
+.mission-card p,
+.vision-card p {
+    margin-bottom: 20px;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* Kartların son paragrafındaki boşluğu kaldır */
+.mission-card p:last-child,
+.vision-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Vurgulu kelimeler */
+strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Grid dikey hizalama (kartların boyunu eşitler) */
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* --- KURUMSAL BÖLÜMÜ (DÜZELTİLMİŞ) --- */
+.about-mission {
+    padding: 120px 0;
+    background-color: var(--bg-light);
+    position: relative;
+    overflow: hidden;
+    /* Şekillerin taşmasını engeller */
+    display: block;
+    /* Bölümün düzgün oturmasını sağlar */
+}
+
+/* Başlık alanı */
+.section-title {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Izgara yapısı - Kaymayı engelleyen ana kısım */
+.mission-vision-grid {
+    display: flex;
+    /* Grid yerine Flex kullanarak daha kontrollü hizalıyoruz */
+    flex-wrap: wrap;
+    /* Mobilde alt alta geçmesi için */
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+    /* Kutuların boyunu otomatik olarak birbirine eşitler */
+    position: relative;
+    z-index: 5;
+}
+
+/* Kartların yapısı */
+.mission-card,
+.vision-card {
+    flex: 1;
+    /* İki kutunun da eşit genişlikte olmasını sağlar */
+    min-width: 300px;
+    /* Çok daralmasını engeller */
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-bottom: 6px solid var(--primary);
+
+    /* İçeriklerin kutu içine düzgün yayılması */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Kart içindeki başlık ve metinler */
+.mission-card h2,
+.vision-card h2 {
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    color: var(--dark);
+}
+
+.mission-card p,
+.vision-card p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* ŞEKİLLERİN KONUMUNU SABİTLE (Kutuları itmemesi için) */
+.shape-9,
+.shape-10 {
+    position: absolute;
+    pointer-events: none;
+    /* Üzerine tıklanabilirliği iptal eder, sadece görseldir */
+    z-index: 1;
+}
+
+.shape-9 {
+    width: 400px;
+    height: 400px;
+    background: var(--primary);
+    opacity: 0.02;
+    top: 10%;
+    left: -150px;
+    border-radius: 30% 70% 50% 50%;
+}
+
+.shape-10 {
+    width: 300px;
+    height: 300px;
+    background: var(--primary);
+    opacity: 0.02;
+    bottom: 5%;
+    right: -100px;
+    border-radius: 60% 40% 30% 70%;
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: var(--bg-light);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* --- BRANDS (BEYAZ) --- */
+.brands {
+    padding: 100px 0;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.brands-grid {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.brands-grid img {
+    width: 300px;
+    opacity: 0.6;
+    filter: grayscale(1);
+    transition: 0.3s;
+}
+
+.brands-grid img:hover {
+    opacity: 1;
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+/* --- CONTACT (BEJ) --- */
+.contact {
+    padding: 120px 0;
+    background: var(--bg-light);
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+.contact-form textarea {
+    height: 160px;
+    resize: none;
+}
+
+.contact-details {
+    margin-bottom: 25px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Kutular arası boşluk */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(89, 6, 22, 0.1);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.info-item i {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.map-container {
+    height: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+footer {
+    padding: 50px;
+    background: var(--dark);
+    color: #fff;
+    text-align: center;
+}
+
+.mobile-menu-icon {
+    display: none;
+    /* Masaüstünde görünmez */
+    font-size: 26px;
+    cursor: pointer;
+    color: var(--dark);
+}
+
+/* Navigasyon linkleri masaüstünde yan yana durur */
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+/* --- RESPONSIVE (MOBİL) AYARLARI --- */
+@media (max-width: 992px) {
+
+    /* Sadece 992px ve altındaki ekranlarda üç çizgiyi göster */
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    /* Mobil menü kapalıyken gizli dursun */
+    .nav-links {
+        position: fixed;
+        top: -100%;
+        /* Sayfanın dışına itiyoruz */
+        left: 0;
+        width: 100%;
+        height: auto;
+        background: var(--white);
+        flex-direction: column;
+        padding: 40px 0;
+        transition: 0.4s ease-in-out;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    /* Menü aktif olduğunda aşağı insin */
+    .nav-links.active {
+        top: 70px;
+        /* Header yüksekliğine göre ayarlandı */
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+        /* Mobil menüde linkler alt alta ve aralıklı */
+    }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+    .nav-links {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        padding: 50px 0;
+    }
+
+    .hero-wrapper,
+    .mission-vision-grid,
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
